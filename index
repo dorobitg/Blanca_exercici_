@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia d'exercicis per dia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verd-clar:#BAC095;
+    --verd-fosc:#3D4127;
+    --negre:#000000;
+    --blanc:#FFFFFF;
+    --verd-clar-suau: rgba(186,192,149,0.35);
+    --verd-fosc-suau: rgba(61,65,39,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--blanc);color:var(--verd-fosc);line-height:1.5;}
+  h1,h2,h3{font-family:'Fraunces',serif;color:var(--verd-fosc);margin:0 0 .3em 0;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px;}
+
+  header.hero{background:var(--verd-fosc);color:var(--blanc);padding:44px 20px 56px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;left:-70px;bottom:-90px;width:260px;height:260px;border-radius:50%;background:var(--verd-clar);opacity:.16;}
+  .hero-inner{max-width:1000px;margin:0 auto;position:relative;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--verd-clar);font-weight:600;margin-bottom:10px;}
+  header.hero h1{color:var(--blanc);font-size:2.1rem;font-weight:600;max-width:640px;}
+  header.hero p{max-width:600px;color:var(--verd-clar);font-size:1rem;margin-top:8px;}
+  .medical-note{margin-top:22px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);border-radius:12px;padding:14px 18px;font-size:.86rem;color:var(--blanc);max-width:680px;}
+  .medical-note strong{color:var(--verd-clar);}
+
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--blanc);border-bottom:1px solid var(--verd-fosc-suau);padding:14px 20px;}
+  .tabs-inner{max-width:1000px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;}
+  .tab-btn{border:1px solid var(--verd-fosc);background:var(--blanc);color:var(--verd-fosc);padding:9px 18px;border-radius:999px;font-family:'Inter';font-weight:600;font-size:.85rem;cursor:pointer;}
+  .tab-btn.active{background:var(--verd-fosc);color:var(--blanc);}
+
+  section.day-section{margin-top:44px;scroll-margin-top:80px;}
+  .day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+  .day-num{font-family:'Fraunces';font-size:.8rem;background:var(--verd-clar-suau);color:var(--verd-fosc);padding:4px 12px;border-radius:999px;font-weight:600;}
+  .day-head h2{font-size:1.5rem;}
+  .day-groups{font-size:.85rem;opacity:.7;margin-bottom:22px;}
+  .day-note{background:var(--verd-clar-suau);border-radius:10px;padding:12px 16px;font-size:.85rem;margin-bottom:22px;}
+
+  .ex-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:720px){.ex-grid{grid-template-columns:1fr;}}
+
+  .ex-card{border:1px solid var(--verd-fosc-suau);border-radius:16px;padding:18px;display:flex;gap:14px;}
+  .ex-card svg{width:70px;height:104px;flex-shrink:0;}
+  .ex-card .ex-name{font-weight:700;font-size:1rem;margin-bottom:3px;}
+  .ex-card .ex-groups{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+  .group-chip{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;background:var(--verd-fosc);color:var(--blanc);padding:3px 9px;border-radius:999px;}
+  .ex-desc{font-size:.83rem;opacity:.8;}
+  .ex-view{font-size:.68rem;opacity:.5;margin-top:6px;text-transform:uppercase;letter-spacing:.05em;}
+
+  footer{text-align:center;padding:30px 20px;font-size:.75rem;opacity:.5;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Guia de referència</div>
+    <h1>Exercicis típics per a cada dia</h1>
+    <p>Un recull més ampli d'exercicis habituals per a cada grup muscular del teu pla setmanal, amb el grup treballat en cada un.</p>
+    <div class="medical-note">
+      <strong>Recorda:</strong> consulta amb el teu equip mèdic o fisioterapeuta quins d'aquests exercicis són adequats per a tu. Comença sempre amb poc pes o resistència i incrementa de mica en mica. Atura't si notes dolor, tibantor excessiva o inflor, especialment al braç o al pit.
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-target="dia1">Dia 1 — Abdominals, braços, espatlles i trapezi</button>
+    <button class="tab-btn" data-target="dia2">Dia 2 — Esquena</button>
+    <button class="tab-btn" data-target="dia3">Dia 3 — Cames i tren inferior</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- DIA 1 -->
+  <section class="day-section" id="dia1">
+    <div class="day-head"><span class="day-num">Dia 1</span><h2>Abdominals, braços, espatlles i trapezi</h2></div>
+    <div class="day-groups">Grups treballats: recte abdominal, oblics, bíceps, tríceps, deltoides, trapezi</div>
+    <div class="day-note">Puja i baixa el braç del costat operat només fins on et sigui còmode; amplia el recorregut a poc a poc en sessions successives.</div>
+    <div class="ex-grid" id="grid-dia1"></div>
+  </section>
+
+  <!-- DIA 2 -->
+  <section class="day-section" id="dia2">
+    <div class="day-head"><span class="day-num">Dia 2</span><h2>Esquena</h2></div>
+    <div class="day-groups">Grups treballats: dorsal ample, romboides, lumbar, trapezi mitjà i inferior</div>
+    <div class="day-note">Prioritza la mobilitat i la postura per sobre de la càrrega. Els moviments han de ser lents i controlats.</div>
+    <div class="ex-grid" id="grid-dia2"></div>
+  </section>
+
+  <!-- DIA 3 -->
+  <section class="day-section" id="dia3">
+    <div class="day-head"><span class="day-num">Dia 3</span><h2>Cames i tren inferior</h2></div>
+    <div class="day-groups">Grups treballats: quàdriceps, isquiotibials, glutis, bessons</div>
+    <div class="day-note">Fes servir una cadira o la paret com a suport si notes inestabilitat.</div>
+    <div class="ex-grid" id="grid-dia3"></div>
+  </section>
+
+</div>
+
+<footer>Guia de referència d'exercicis — complementària a l'aplicació de seguiment.</footer>
+
+<script>
+const base = "#3D4127";
+const highlight = "#BAC095";
+
+function figureSVG(zone, view){
+  let overlay = "";
+  if(view === "front"){
+    if(zone === "abdomen") overlay = `<rect x="60" y="93" width="40" height="46" rx="14" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "arms") overlay = `<rect x="38" y="62" width="18" height="76" rx="9" fill="${highlight}" opacity="0.85"/><rect x="104" y="62" width="18" height="76" rx="9" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "shoulders") overlay = `<ellipse cx="47" cy="63" rx="15" ry="13" fill="${highlight}" opacity="0.85"/><ellipse cx="113" cy="63" rx="15" ry="13" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "legs") overlay = `<rect x="59" y="156" width="21" height="76" rx="10" fill="${highlight}" opacity="0.85"/><rect x="80" y="156" width="21" height="76" rx="10" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "calves") overlay = `<rect x="61" y="208" width="17" height="24" rx="8" fill="${highlight}" opacity="0.85"/><rect x="82" y="208" width="17" height="24" rx="8" fill="${highlight}" opacity="0.85"/>`;
+  } else {
+    if(zone === "back") overlay = `<rect x="55" y="64" width="50" height="72" rx="18" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "lower-back") overlay = `<rect x="60" y="110" width="40" height="30" rx="12" fill="${highlight}" opacity="0.9"/>`;
+    if(zone === "trapezius") overlay = `<path d="M58 52 L102 52 L84 78 L76 78 Z" fill="${highlight}" opacity="0.9"/>`;
+    if(zone === "glutes") overlay = `<ellipse cx="80" cy="144" rx="29" ry="19" fill="${highlight}" opacity="0.85"/>`;
+    if(zone === "hamstrings") overlay = `<rect x="60" y="160" width="19" height="55" rx="9" fill="${highlight}" opacity="0.85"/><rect x="81" y="160" width="19" height="55" rx="9" fill="${highlight}" opacity="0.85"/>`;
+  }
+  return `<svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="80" cy="18" rx="9" ry="7" fill="${base}"/>
+    <ellipse cx="80" cy="33" rx="16" ry="18" fill="${base}"/>
+    <rect x="72" y="48" width="16" height="13" rx="4" fill="${base}"/>
+    <rect x="54" y="58" width="52" height="18" rx="9" fill="${base}"/>
+    <path d="M58 72 C58 72 60 96 64 108 C67 116 60 122 62 132 C64 140 96 140 98 132 C100 122 93 116 96 108 C100 96 102 72 102 72 Z" fill="${base}"/>
+    <rect x="41" y="63" width="15" height="75" rx="7" fill="${base}"/>
+    <rect x="104" y="63" width="15" height="75" rx="7" fill="${base}"/>
+    <ellipse cx="48" cy="141" rx="8" ry="6" fill="${base}"/>
+    <ellipse cx="112" cy="141" rx="8" ry="6" fill="${base}"/>
+    <rect x="60" y="155" width="19" height="77" rx="9" fill="${base}"/>
+    <rect x="81" y="155" width="19" height="77" rx="9" fill="${base}"/>
+    <ellipse cx="69" cy="234" rx="12" ry="5" fill="${base}"/>
+    <ellipse cx="91" cy="234" rx="12" ry="5" fill="${base}"/>
+    ${overlay}
+  </svg>`;
+}
+
+const data = {
+  dia1: [
+    {name:"Contracció abdominal en assegut", groups:["Recte abdominal"], desc:"Asseguda amb l'esquena recta, expira contraient l'abdomen 3 segons i relaxa.", zone:"abdomen", view:"front"},
+    {name:"Bàscula pèlvica", groups:["Recte abdominal","Lumbar"], desc:"Ajaguda amb els genolls flexionats, corba i aplana suaument la zona lumbar.", zone:"abdomen", view:"front"},
+    {name:"Gir de tronc assegut", groups:["Oblics"], desc:"Asseguda, gira suaument el tronc cap a cada costat mantenint els malucs fixos.", zone:"abdomen", view:"front"},
+    {name:"Flexió de bíceps amb banda", groups:["Bíceps"], desc:"Amb una banda elàstica sota els peus, flexiona els colzes portant les mans cap a les espatlles.", zone:"arms", view:"front"},
+    {name:"Extensió de tríceps amb banda", groups:["Tríceps"], desc:"Amb la banda subjecta per darrere, estira el braç cap avall de manera controlada.", zone:"arms", view:"front"},
+    {name:"Elevació frontal de braços", groups:["Deltoides"], desc:"De peu o asseguda, eleva els braços endavant fins a l'alçada de l'espatlla.", zone:"shoulders", view:"front"},
+    {name:"Cercles de braços", groups:["Deltoides"], desc:"Braços estirats lateralment, fes cercles petits i controlats en ambdues direccions.", zone:"shoulders", view:"front"},
+    {name:"Encongiment d'espatlles", groups:["Trapezi"], desc:"Eleva les espatlles cap a les orelles i baixa-les lentament.", zone:"trapezius", view:"back"}
+  ],
+  dia2: [
+    {name:"Gat-vaca", groups:["Lumbar","Dorsal ample"], desc:"A quatre grapes, alterna arquejar i arrodonir l'esquena seguint la respiració.", zone:"back", view:"back"},
+    {name:"Rem amb banda elàstica assegut", groups:["Dorsal ample","Romboides"], desc:"Amb les cames estirades i la banda als peus, estira cap enrere ajuntant els omòplats.", zone:"back", view:"back"},
+    {name:"Superman suau", groups:["Lumbar","Glutis"], desc:"Ajaguda bocaterrosa, eleva lleugerament un braç i la cama oposada de manera alterna.", zone:"back", view:"back"},
+    {name:"Àngels de paret", groups:["Trapezi","Romboides"], desc:"Amb l'esquena a la paret, puja i baixa els braços dibuixant una V.", zone:"trapezius", view:"back"},
+    {name:"Extensió de tronc en quatre grapes", groups:["Lumbar"], desc:"A quatre grapes, allarga lleugerament la columna sense forçar l'amplitud.", zone:"lower-back", view:"back"},
+    {name:"Retracció escapular", groups:["Romboides","Trapezi mitjà"], desc:"Asseguda, junta els omòplats cap al centre de l'esquena i manté 3 segons.", zone:"back", view:"back"}
+  ],
+  dia3: [
+    {name:"Sentadella a cadira", groups:["Quàdriceps","Glutis"], desc:"Asseu-te i aixeca't d'una cadira amb control, sense deixar-te caure.", zone:"legs", view:"front"},
+    {name:"Pont de malucs", groups:["Glutis","Isquiotibials"], desc:"Ajaguda amb els genolls flexionats, eleva els malucs contraient els glutis.", zone:"glutes", view:"back"},
+    {name:"Elevació de talons", groups:["Bessons"], desc:"De peu, puja sobre les puntes dels peus i baixa lentament.", zone:"calves", view:"front"},
+    {name:"Step-up a esglaó baix", groups:["Quàdriceps","Glutis"], desc:"Puja i baixa d'un esglaó estable, alternant la cama que inicia el moviment.", zone:"legs", view:"front"},
+    {name:"Elevació lateral de cama", groups:["Glutis mitjà"], desc:"De peu i subjectant-te si cal, eleva la cama lateralment mantenint el maluc estable.", zone:"legs", view:"front"},
+    {name:"Flexió de genoll de peu", groups:["Isquiotibials"], desc:"De peu, flexiona el genoll portant el taló cap al glutis de manera controlada.", zone:"hamstrings", view:"back"},
+    {name:"Escalfament de turmells", groups:["Bessons","Tibial"], desc:"Asseguda, fes cercles amb els turmells en ambdues direccions.", zone:"calves", view:"front"}
+  ]
+};
+
+function renderGrid(dayKey){
+  const grid = document.getElementById('grid-'+dayKey);
+  grid.innerHTML = data[dayKey].map(ex => `
+    <div class="ex-card">
+      ${figureSVG(ex.zone, ex.view)}
+      <div>
+        <div class="ex-name">${ex.name}</div>
+        <div class="ex-groups">${ex.groups.map(g=>`<span class="group-chip">${g}</span>`).join('')}</div>
+        <div class="ex-desc">${ex.desc}</div>
+        <div class="ex-view">Vista ${ex.view === 'front' ? 'frontal' : 'posterior'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+['dia1','dia2','dia3'].forEach(renderGrid);
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+</body>
+</html>
